@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class VegetableGarden {
+public:
+    static void harvest(int& seedlings, int& products, int multiplier) {
+        products = seedlings * multiplier;
+    }
+
+    static void calculatePrice(int products, double unitPrice) {
+        double totalPrice = products * unitPrice;
+        cout << "Total price: " << totalPrice << endl;
+    }
+};
+
+int main() {
+    int tomatoSeedlings = 10, tomatoProducts = 0;
+    int carrotSeedlings = 20, carrotProducts = 0;
+    double tomatoUnitPrice = 2.5, carrotUnitPrice = 1.5;
+
+    VegetableGarden::harvest(tomatoSeedlings, tomatoProducts, 5);
+    VegetableGarden::harvest(carrotSeedlings, carrotProducts, 1);
+
+    cout << "Tomatoes: " << tomatoProducts << " units" << endl;
+    cout << "Carrots: " << carrotProducts << " units" << endl;
+
+    VegetableGarden::calculatePrice(tomatoProducts, tomatoUnitPrice);
+    VegetableGarden::calculatePrice(carrotProducts, carrotUnitPrice);
+
+    return 0;
+}
