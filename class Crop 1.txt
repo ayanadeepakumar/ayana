@@ -1,0 +1,37 @@
+class Crop:
+    def __init__(self, name, seedlings, yield_per_seedling, price_per_unit):
+        self.name = name
+        self.seedlings = seedlings
+        self.yield_per_seedling = yield_per_seedling
+        self.price_per_unit = price_per_unit
+
+    def total_yield(self):
+        return self.seedlings * self.yield_per_seedling
+
+    def total_revenue(self):
+        return self.total_yield() * self.price_per_unit
+
+def main():
+    print("🌿 Welcome to the Green Harvest Program! 🌿\n")
+
+    crops = []
+    num_crops = int(input("Enter the number of crops you want to manage: "))
+
+    for i in range(num_crops):
+        print(f"\n--- Crop {i+1} ---")
+        name = input("Crop name: ")
+        seedlings = int(input("Number of seedlings planted: "))
+        yield_per_seedling = float(input("Expected yield per seedling (units): "))
+        price_per_unit = float(input("Market price per unit ($): "))
+
+        crop = Crop(name, seedlings, yield_per_seedling, price_per_unit)
+        crops.append(crop)
+
+    print("\n🌾 Harvest Summary 🌾")
+    for crop in crops:
+        print(f"\nCrop: {crop.name}")
+        print(f"Total Yield: {crop.total_yield()} units")
+        print(f"Expected Revenue: ${crop.total_revenue():.2f}")
+
+if __name__ == "__main__":
+    main()
